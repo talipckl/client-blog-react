@@ -7,7 +7,7 @@ export const Account = () => {
     <>
       <section className='accountInfo'>
         <div className='container boxItems'>
-          <h1>Account Information</h1>
+          <h1>Account Email</h1>
           <div className='content'>
             <div className='left'>
               <div className='img flexCenter'>

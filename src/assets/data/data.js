@@ -29,6 +29,11 @@ export const nav = [
     text: "Subscripe",
     url: "/Subscripe",
   },
+  {
+    id: 5,
+    text: "register",
+    url: "/register",
+  },
 ]
 export const category = [
   {
