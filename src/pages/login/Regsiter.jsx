@@ -12,7 +12,8 @@ export const Regsiter = () => {
 
   const handleRegister = async () => {
     try {
-      const response = await axios.post('http://192.168.1.61/api/auth/register', {
+      console.log(process.env.API_URL+'/auth/register');
+      const response = await axios.post(process.env.REACT_APP_API_URL+'/auth/register', {
         email: email,
         password: password,
         name: username
@@ -25,7 +26,7 @@ export const Regsiter = () => {
 
   };
   return (
-    <>
+    
       <section className='login'>
         <div className='container'>
           <div className='backImg'>
@@ -42,10 +43,10 @@ export const Regsiter = () => {
             <input type='text' value={username} onChange={(e) => setUsername(e.target.value)} required />
             <span>Password *</span>
             <input type='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
-            <button className='button' onClick={handleRegister}>Register</button>
+            <button className='button' type="button" onClick={handleRegister}>Register</button>
           </form>
         </div>
       </section>
-    </>
+
   );
 };

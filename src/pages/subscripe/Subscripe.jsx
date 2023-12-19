@@ -15,7 +15,7 @@ export const Subscripe = () => {
   const handleCreatePost = async () => {
     try {
       console.log(email);
-      const response = await fetch("http://192.168.1.61/api/subscription", {
+      const response = await fetch(process.env.REACT_APP_API_URL+"/subscription", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
