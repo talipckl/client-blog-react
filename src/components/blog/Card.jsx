@@ -26,16 +26,15 @@ export const Card = () => {
           {
           blogData.map((item) => (
             <div className='box boxItems' key={item.id}>
+               <Link to={`/details/${item.id}`} className='link'></Link>
               <div className='img'>
-                <img src="https://www.marketingturkiye.com.tr/wp-content/uploads/2022/06/doga.jpg" alt='' />
+                <img src={item.img} alt='' />
               </div>
               <h3>{item.title}</h3>
               <div className='details'>
-                <Link to={`/details/${item.id}`} className='link'></Link>
+               
                 <p>{item.description}</p>
-                <div className='date'>
                   <h1>{item.relase_date}</h1>
-                </div>
               </div>
             </div>
           ))}

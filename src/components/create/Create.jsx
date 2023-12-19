@@ -15,13 +15,9 @@ export const Create = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://192.168.1.61/api/blog/category");
-        console.log(response);
-      
-          const data = await response.json();
-          setCategories(data.data); 
-       
-      
+        const response = await axios.get("http://192.168.1.61/api/blog/category");    
+       console.log(response);
+        setCategories(response.data.data);
       } catch (error) {
         console.error("Error fetching categories:", error);
       }
@@ -42,10 +38,12 @@ export const Create = () => {
           "Content-Type": "application/json",
           'Authorization': 'Bearer ' + token
         },
+        
         body: JSON.stringify({
+          img: image,
           title: title,
           description: description,
-          category_id: selectedCategory.id,
+          category_id: selectedCategory
         }),
       });
 
@@ -70,15 +68,15 @@ export const Create = () => {
             <div className="box boxItems">
               {
               categories.length > 0 ? ( 
-                <select className=".inputfile input" value={selectedCategory} onChange={(e) => setSelectedCategory(JSON.parse(e.target.value))}>
-                <option value="">Select a category</option>
+                <select className="inputfile input" value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
+                <option value="">Bir kategori seçin</option>
                 {categories.map(category => (
-                  <option key={category.id} value={JSON.stringify(category)}>
+                  <option key={category.id} value={category.id}>
                     {category.name}
                   </option>
                 ))}
               </select>
-              
+            
               ) : (
                 <p>Loading categories...</p>
               )}

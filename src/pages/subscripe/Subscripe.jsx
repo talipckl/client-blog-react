@@ -14,7 +14,8 @@ export const Subscripe = () => {
 
   const handleCreatePost = async () => {
     try {
-      const response = await fetch("http://192.168.1.107/api/subscription", {
+      console.log(email);
+      const response = await fetch("http://192.168.1.61/api/subscription", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
