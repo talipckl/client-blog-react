@@ -9,7 +9,7 @@ export const Login = () => {
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   const handleLogin = async () => {
-    await fetch('http://192.168.1.61/api/auth/login', {
+    await fetch(process.env.REACT_APP_API_URL+'/auth/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',

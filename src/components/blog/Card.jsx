@@ -8,7 +8,7 @@ export const Card = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://192.168.1.61/api/blog/posts');
+        const response = await fetch(process.env.REACT_APP_API_URL+'/blog/posts');
         const data = await response.json();
         setBlogData(data.data);
       } catch (error) {

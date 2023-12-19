@@ -16,7 +16,7 @@ export const DetailsPages = () => {
   // let blogs = blog.find((blogs) => blogs.id === parseInt(id))
     const  fetchCategories = async () => {
       try {
-        const response = await axios.get(`http://192.168.1.61/api/blog/posts/${parseInt(id)}/show`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}+/blog/posts/${parseInt(id)}/show`);
         console.log(response);
 
         const data = await response.json();

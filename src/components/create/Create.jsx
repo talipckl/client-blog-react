@@ -15,7 +15,7 @@ export const Create = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://192.168.1.61/api/blog/category");    
+        const response = await axios.get(process.env.REACT_APP_API_URL+"/blog/category");    
        console.log(response);
         setCategories(response.data.data);
       } catch (error) {
@@ -32,7 +32,7 @@ export const Create = () => {
 
   const handleCreatePost = async () => {
     try {
-      const response = await fetch("http://192.168.1.61/api/blog/posts", {
+      const response = await fetch(process.env.REACT_APP_API_URL+"/blog/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
