@@ -20,11 +20,13 @@ export const Login = () => {
       return response.json();
     }).then(response => {
         localStorage.setItem('token', response.data.access_token);
+        setLoggedIn(true);
       })
       .catch((error) => {
+        alert('Login failed error')
         console.error('Login failed', error);
       });
-      setLoggedIn(true);
+    
   };
    if (isLoggedIn) {
           return <Redirect to="/" />;
